@@ -1,26 +1,25 @@
+import dotenv from 'dotenv';
+import express from 'express';
 
-const express=require('express')
-const app=express()
-const http=require('http');
-const server=http.createServer(app);
-const port=3000
 
-const {Server}=require("socket.io");
-const io=new Server(server);
+//database
+import connectDB from './database/connect.js';
 
-//route
-app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/client/index.html');
-})
+dotenv.config();
+const app=express();
 
-io.on('connection',(socket)=>{
-    console.log("a user connected");
-    socket.on('chat message',(msg)=>{
-        io.emit('chat message',msg);
-    })
-})
 
-//server listener
-server.listen(port,()=>{
-    console.log(`listening on port ${port}`)
-})
+const port=process.env.PORT || 3023;
+
+const start=async()=>{
+    try{
+        await connectDB(process.env.MONGO_URI);
+        console.log("mongoDB connected");
+        await app.listen(port,()=>console.log("Server is listening to port no. 3023"))
+
+    }catch(err){
+        console.log(err)
+
+    }
+}
+start();
