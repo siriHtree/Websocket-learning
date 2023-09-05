@@ -1,49 +1,43 @@
 "use client";
 import { useEffect, useState } from "react";
-import io from "socket.io-client";
+import { io } from "socket.io-client";
 
 const Chat = () => {
 	const [message, setMessage] = useState("");
-	const [messages, setMessages] = useState([]);
-	const [socket, setSocket] = useState(null);
+	const [messages, setMessages] = useState<any>([]);
+	const [socket, setSocket] = useState<any>(null);
 
 	useEffect(() => {
 		console.log("Connecting to WebSocket server...");
 		const newSocket = io("http://localhost:3000/", {
 			transports: ["websocket"],
 		});
-
 		newSocket.on("connect", () => {
-			console.log("Connected to WebSocket server");
+			console.log("connected to websocket server");
 		});
-
 		newSocket.on("message", (newMessage) => {
-			console.log("Received message:", newMessage);
-			// setMessages((prevMessages) => [...prevMessages, newMessage]);
+			setMessages((prevMessages: any) => [...prevMessages, newMessage]);
 		});
-
-		// setSocket(newSocket);
-
-		// Clean up the socket connection on unmount
+		setSocket(newSocket);
 		return () => {
-			console.log("Disconnecting from WebSocket server...");
+			console.log("Disconnected from websocket server");
 			newSocket.disconnect();
 		};
 	}, []);
 
-	// const handleMessageSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	if (message.trim() && socket) {
-	// 		socket.emit("message", message);
-	// 		setMessage("");
-	// 	}
-	// };
+	const handleMessageSubmit = (e: any) => {
+		e.preventDefault();
+		if (message.trim() && socket) {
+			socket.emit("message", message);
+			setMessage("");
+		}
+	};
 
 	return (
 		<div>
 			<h1>Chat App</h1>
-			{/* <div>
-				{messages.map((msg, index) => (
+			<div>
+				{messages.map((msg: any, index: any) => (
 					<div key={index}>{msg}</div>
 				))}
 			</div>
@@ -54,7 +48,7 @@ const Chat = () => {
 					onChange={(e) => setMessage(e.target.value)}
 				/>
 				<button type="submit">Send</button>
-			</form> */}
+			</form>
 		</div>
 	);
 };
