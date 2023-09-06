@@ -1,8 +1,8 @@
-import WebSocket from "./components/WebSocket";
-export default function Home() {
+import Home from "../components/Home";
+export default function page() {
 	return (
 		<main>
-			<WebSocket></WebSocket>
+			<Home />
 		</main>
 	);
 }
