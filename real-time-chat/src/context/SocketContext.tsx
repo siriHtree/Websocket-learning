@@ -25,10 +25,10 @@ export default function SocketProvider({
 	const [messages, setMessages] = useState<IMessage[] | []>([]);
 	const { username } = useUser();
 	useEffect(() => {
-		if (!username) {
-			router.replace("/");
-			return;
-		}
+		// if (!username) {
+		// 	router.replace("/");
+		// 	return;
+		// }
 		console.log("connecting user");
 		let socket = io(process.env.NEXT_PUBLIC_SOCKET_SERVER_URL!);
 		socket.on("connect", () => {

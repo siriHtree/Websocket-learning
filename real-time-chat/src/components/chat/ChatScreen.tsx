@@ -3,12 +3,14 @@ import React from "react";
 import ChatBar from "./ChatBar";
 
 import { useSocket } from "@/context/SocketContext";
+import User from "./User";
 
 const ChatScreen = () => {
 	const { socket, messages } = useSocket();
 	return (
-		<section className="w-full h-screen">
-			<div className="w-full h-[90vh] bg-slate-100 flex p-4 justify-end flex-col">
+		<div className="w-[70%] h-screen">
+			<User />
+			<div className="w-full h-[80vh] bg-slate-100 flex p-4 justify-end flex-col">
 				{messages.map((elm, i) => {
 					return (
 						<div
@@ -27,7 +29,7 @@ const ChatScreen = () => {
 				})}
 			</div>
 			<ChatBar></ChatBar>
-		</section>
+		</div>
 	);
 };
 
