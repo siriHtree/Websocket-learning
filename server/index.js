@@ -10,9 +10,15 @@ dotenv.config();
 
 const app=express();
 const port=process.env.PORT || 3000;
-
+app.use(cors());
 const server=http.createServer(app);
-const io=new Server(server);
+const io=new Server(server,{
+  cors:{
+    origin:process.env.CLIENT_URL,
+    methods:['GET',"POST"],
+
+  }
+});
 
  app.get("/",(req,res)=>{
 
@@ -20,14 +26,13 @@ const io=new Server(server);
  res.send("hello world!")
  })
  io.on('connection',(socket)=>{
-    console.log("a user connected");
     // Listen for incoming messages
-  socket.on("message", (message) => {
-    // console.log("Received message:", message);
 
-    // Broadcast the message to all connected clients
-    io.emit("message", message);
+    socket.on("username",(data)=>{
   });
+  socket.on("send_message",(data)=>{
+    io.emit("get_message", data);
+  })
 
   // Handle disconnection
   socket.on("disconnect", () => {
