@@ -2,6 +2,9 @@ import "./global.css";
 import { Inter } from "next/font/google";
 import UserProvider from "@/context/UserContext";
 
+//Components
+import Nav from "@/components/Nav/Nav";
+
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
 	title: "talkNow",
@@ -20,7 +23,10 @@ export default function RootLayout({
 					suppressHydrationWarning={true}
 					className={inter.className}
 				>
-					<main className="w-full min-h-screen">{children}</main>
+					<main className="w-full min-h-screen">
+						<Nav />
+						{children}
+					</main>
 				</body>
 			</UserProvider>
 		</html>
