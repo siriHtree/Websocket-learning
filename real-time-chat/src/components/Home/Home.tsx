@@ -4,6 +4,7 @@ import CButton from "../Common/CButton";
 import { motion } from "framer-motion";
 // import StartButton from "../StartButton";
 import { HiOutlineCursorArrowRipple } from "react-icons/hi2";
+import Pic from "./Pic";
 
 const Home = () => {
 	return (
@@ -31,6 +32,7 @@ const Home = () => {
 					with others
 				</h1>
 			</div>
+			<Pic size={100}></Pic>
 		</section>
 	);
 };
