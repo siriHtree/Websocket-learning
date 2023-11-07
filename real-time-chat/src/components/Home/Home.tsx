@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { HiOutlineCursorArrowRipple } from "react-icons/hi2";
 import Pic from "./Pic";
 
+
 const Home = () => {
 	return (
 		<section className="w-full h-screen bg-bg1 flex items-center justify-center">
@@ -23,16 +24,20 @@ const Home = () => {
 					</span>
 				</h6>
 				<h1 className="text-clr1 text-8xl text-center">
-					Chat with anyone <br /> and at anytime{" "}
+					Chat&nbsp;<Pic></Pic>
+		
+			with anyone <br /> and at anytime{" "}
 					<HiOutlineCursorArrowRipple className="text-clr2" /> ,Here{" "}
 					<br /> chat{" "}
-					<span>
+					<span className="">
 						<CButton emphasis={true}>Now</CButton>{" "}
 					</span>
 					with others
 				</h1>
 			</div>
-			<Pic size={100}></Pic>
+		
+			
+
 		</section>
 	);
 };
