@@ -1,17 +1,25 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import CButton from "../Common/CButton";
-import { motion } from "framer-motion";
+import { motion,useScroll } from "framer-motion";
 // import StartButton from "../StartButton";
 import { HiOutlineCursorArrowRipple } from "react-icons/hi2";
 import Pic from "./Pic";
-
+import Link from "next/link";
 
 const Home = () => {
+    const {scrollY,scrollYProgress}=useScroll();
+	useEffect(()=>{
+     console.log(scrollY.get())
+	},[scrollY])
 	return (
 		<>
-		<section className="w-full h-screen bg-bg1 flex items-center justify-center sticky z-1 top-0">
-			<div className="flex flex-col items-center relative z-9">
+		<section className="w-full h-screen  flex items-center justify-center sticky z-9 top-0">
+	    {/* <motion.div 
+		className="bg-pink-400 fixed top-20 left-0 h-5 z-10 w-full origin-left" 
+		style={{ scaleX: scrollYProgress }} /> */}
+
+			<div className="w-[80vw] h-[50vh] flex flex-col items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-9">
 				<h6 className="uppercase text-clr2 text-lg mb-4 font-medium tracking-tight">
 					<span className="inline-block overflow-hidden">
 						<motion.span
@@ -40,7 +48,10 @@ const Home = () => {
 					<br /> chat{" "}
 					<span className="inline-block relative w-[100px] h-[100px]">
 						<div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-						<CButton emphasis={true} home={true}>Now</CButton>
+							<Link href="/chat">
+							<CButton emphasis={true} home={true}>Now</CButton>
+							</Link>
+						
 						</div>
 					</span>
 					{' '} with others	
@@ -52,9 +63,7 @@ const Home = () => {
 			
 
 		</section>
-		<section className="w-full h-screen bg-clr2 relative z-2 mix-blend-lighten">
-
-		</section>
+		
 		</>
 		
 	);

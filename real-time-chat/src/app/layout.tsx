@@ -23,7 +23,7 @@ export default function RootLayout({
 					suppressHydrationWarning={true}
 					className={inter.className}
 				>
-					<main className="w-full min-h-screen">
+					<main className="w-full min-h-screen bg-bg1">
 						<Nav />
 						{children}
 					</main>
