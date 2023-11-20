@@ -36,11 +36,11 @@ const ChatBar = () => {
 	};
 
 	return (
-		<form onSubmit={sendMessage}>
+		<form onSubmit={sendMessage} className="w-full">
 			<div className="w-full h-[10vh] flex items-center justify-center">
 				<TextField
 					variant="outlined"
-					className="w-[90%]"
+					className="w-[90%] mr-2"
 					color="secondary"
 					value={text}
 					onChange={addMessage}
