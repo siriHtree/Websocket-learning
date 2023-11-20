@@ -3,9 +3,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const Pic = (props: any) => {
-	let size=80
+	let size=100
 	return (
-		<span className="relative inline-block w-[200px] h-[100px]">
+		<span className="relative inline-block w-[200px] h-[100px] hide_them">
 			<motion.div 
 			initial={{ left: "-10%",
 			            top:'50%',

@@ -1,10 +1,7 @@
-import Section2 from "@/components/Home/Section2";
-import Home from "../components/Home/Home";
+import Main from "@/components/Home/Main";
+
 export default function page() {
 	return (
-		<>
-			<Home />
-			<Section2></Section2>
-		</>
+		<Main/>
 	);
 }
