@@ -20,7 +20,7 @@ const Home = () => {
 		style={{ scaleX: scrollYProgress }} /> */}
 
 			<div className="w-[80vw] h-[50vh] flex flex-col items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-9">
-				<h6 className="uppercase text-clr2 text-lg mb-4 font-medium tracking-tight">
+				<h6 className="uppercase text-clr2 text-xl mb-4 font-medium tracking-tight">
 					<span className="inline-block overflow-hidden">
 						<motion.span
 							className="inline-block"
@@ -32,7 +32,7 @@ const Home = () => {
 						</motion.span>{" "}
 					</span>
 				</h6>
-				<h1 className="text-clr1 text-8xl text-center font-medium tracking-tighter overflow-hidden">
+				<h1 className="text-clr1 text-9xl text-center font-normal overflow-hidden">
 				<motion.span
 							className="inline-block"
 							initial={{ y: "100%" }}
@@ -44,7 +44,7 @@ const Home = () => {
 			         <span className="inline-block relative w-[70px] h-[70px]">
 						<HiOutlineCursorArrowRipple className="text-clr2 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" />
 					 </span>
-					 ,Here{" "}
+					 {" "},Here{" "}
 					<br /> chat{" "}
 					<span className="inline-block relative w-[100px] h-[100px]">
 						<div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">

@@ -36,23 +36,21 @@ const ChatBar = () => {
 	};
 
 	return (
-		<form onSubmit={sendMessage} className="w-full">
-			<div className="w-full h-[10vh] flex items-center justify-center">
+		<form onSubmit={sendMessage} className=" w-[94%]">
+			<div className="w-full h-[10vh] flex items-center justify-between">
 				<TextField
 					variant="outlined"
-					className="w-[90%] mr-2"
-					color="secondary"
+					className="w-[95%]"
 					value={text}
 					onChange={addMessage}
 				/>
 				<Fab
 					aria-label="send"
-					className="ml-2"
-					color="secondary"
+					color="primary"
 					onClick={sendMessage}
 					type="submit"
 				>
-					<SendIcon />
+					<SendIcon className="text-white" />
 				</Fab>
 			</div>
 		</form>

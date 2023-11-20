@@ -1,6 +1,7 @@
 import "./global.css";
 import { Inter } from "next/font/google";
 import UserProvider from "@/context/UserContext";
+import MuiCustomTheme from '@/context/MuiCustomTheme';
 
 //Components
 import Nav from "@/components/Nav/Nav";
@@ -18,7 +19,8 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<UserProvider>
+			<MuiCustomTheme>
+				<UserProvider>
 				<body
 					suppressHydrationWarning={true}
 					className={inter.className}
@@ -29,6 +31,8 @@ export default function RootLayout({
 					</main>
 				</body>
 			</UserProvider>
+			</MuiCustomTheme>
+			
 		</html>
 	);
 }

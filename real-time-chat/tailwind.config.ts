@@ -16,6 +16,7 @@ const config: Config = {
 			colors: {
 				bg1: "#FFF2E9",
 				clr1: "#1E1F30",
+				clr1_gredient: "rgba(30,31,48,0.59)",
 				clr2: "#F0823F",
 				white: "#fff",
 				transparent: "transparent",

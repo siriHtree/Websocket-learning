@@ -21,8 +21,8 @@ const ChatScreen = () => {
 									: "items-start"
 							} mt-4 flex-col`}
 						>
-							<div className="px-4 py-2 bg-clr2 w-fit rounded-2xl">
-								<p className="text-white">{elm.text}</p>
+							<div className="px-4 py-2 bg-clr1_gredient w-fit rounded-full text-2xl">
+								<p className="text-white font-normal">{elm.text}</p>
 							</div>
 							<h6 className="mr-1 font-normal">{elm.name}</h6>
 						</div>
