@@ -43,8 +43,8 @@ const io=new Server(server,{
 
 const start=async()=>{
     try{
-        await connectDB(process.env.MONGO_URI);
-        console.log("mongoDB connected");
+        // await connectDB(process.env.MONGO_URI);
+        // console.log("mongoDB connected");
         await server.listen(port,()=>console.log(`Server is listening to port no. ${port}`))
 
     }catch(err){

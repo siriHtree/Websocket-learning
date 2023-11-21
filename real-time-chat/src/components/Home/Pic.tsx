@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const Pic = (props: any) => {
-	let size=100
+	let size=80
 	return (
 		<span className="relative inline-block w-[200px] h-[100px] hide_them">
 			<motion.div 

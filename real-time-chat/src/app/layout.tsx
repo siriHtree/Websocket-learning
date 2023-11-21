@@ -2,9 +2,8 @@ import "./global.css";
 import { Inter } from "next/font/google";
 import UserProvider from "@/context/UserContext";
 import MuiCustomTheme from '@/context/MuiCustomTheme';
+import Main from "./Main";
 
-//Components
-import Nav from "@/components/Nav/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -25,10 +24,10 @@ export default function RootLayout({
 					suppressHydrationWarning={true}
 					className={inter.className}
 				>
-					<main className="w-full min-h-screen bg-bg1">
-						<Nav />
+					<Main>
 						{children}
-					</main>
+					</Main>
+					
 				</body>
 			</UserProvider>
 			</MuiCustomTheme>
