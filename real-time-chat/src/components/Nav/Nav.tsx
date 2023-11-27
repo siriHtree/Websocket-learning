@@ -4,10 +4,12 @@ import CButton from "../Common/CButton";
 import Logo from "../Common/Logo";
 import AuthModal from "../Login/AuthModal";
 import Link from "next/link";
+import MagiLink from "../Login/MagiLink";
 
 
 const Nav = () => {
-	const [authToggle,setAuthToggle]=useState<null | string>(null)
+	const [authToggle,setAuthToggle]=useState<null | string>(null);
+	const [open, setOpen]=useState<boolean>(false);
 	const clickHandler=()=>{
 		console.log('hello')
 	}
@@ -21,11 +23,13 @@ const Nav = () => {
 			</div>
 
 			<div>
-				<CButton buttonAttributes={{onClick:()=>{setAuthToggle("SignIn")}}}>Sign In</CButton>
-				<CButton emphasis={true} buttonAttributes={{onClick:()=>{setAuthToggle("SignUp")}}}>Sign Up</CButton>
+				{/* <CButton buttonAttributes={{onClick:()=>{setAuthToggle("SignIn")}}}>Sign In</CButton>
+				<CButton emphasis={true} buttonAttributes={{onClick:()=>{setAuthToggle("SignUp")}}}>Sign Up</CButton> */}
+				<CButton emphasis={true} buttonAttributes={{onClick:()=>{setOpen(true)}}}>Sign Up</CButton>
 			</div>
 		</nav>
-		<AuthModal authToggle={authToggle} setAuthToggle={setAuthToggle}></AuthModal>
+		{/* <AuthModal authToggle={authToggle} setAuthToggle={setAuthToggle}></AuthModal> */}
+		<MagiLink open={open} setOpen={setOpen}></MagiLink>
 		</>
 		
 	);

@@ -1,8 +1,11 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 //database
 import connectDB from './database/connect.js';
+//APIs
+import UserAPI from './routes/users.js';
 //socket connection
 import http from 'http';
 import {Server} from "socket.io";
@@ -10,6 +13,10 @@ dotenv.config();
 
 const app=express();
 const port=process.env.PORT || 4000;
+app.use(express.json());
+app.use(bodyParser.json({extender:true}));
+app.use(bodyParser.urlencoded({extended:false}));
+
 app.use(cors());
 const server=http.createServer(app);
 const io=new Server(server,{
@@ -20,11 +27,10 @@ const io=new Server(server,{
   }
 });
 
- app.get("/",(req,res)=>{
+/**
+ * Routes or API */ 
+app.use('/api/v1/auth',UserAPI)
 
-
- res.send("hello world!")
- })
  io.on('connection',(socket)=>{
     // Listen for incoming messages
 
